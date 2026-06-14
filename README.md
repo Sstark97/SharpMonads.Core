@@ -2,7 +2,7 @@
 
 A functional programming library providing solid, efficient implementations of essential monads for C#.
 
-`SharpMonads.Core` ships zero-allocation value types (`readonly record struct`) for the most common functional building blocks: `Option<T>`, `Result<TValue, TError>`, and `Unit`. Each comes with `Map`/`Bind`/`Match` operators, LINQ query-syntax support, and async combinators.
+`SharpMonads.Core` ships zero-allocation value types (`readonly record struct`) for the most common functional building blocks: `Option<T>`, `Result<TValue, TError>`, `Either<TLeft, TRight>`, and `Unit`. Each comes with `Map`/`Bind`/`Match` operators, LINQ query-syntax support, and async combinators.
 
 - **Target framework:** `net10.0`
 - **License:** MIT
@@ -135,6 +135,68 @@ Result<string, string> name = await Result<int, string>.Success(1)
     .BindAsync(LoadUserAsync)      // chain an async fallible step
     .TapAsync(AuditAsync)          // run a side effect, keep the value
     .MapAsync(user => user.Name);  // transform the success value
+```
+
+## `Either<TLeft, TRight>`
+
+Represents a value of one of two possible types. By convention it is *right-biased*: `Right` holds the "happy path" value and `Left` the alternative, so `Map`/`Bind` operate on the `Right` side and short-circuit on `Left`.
+
+```csharp
+// Construction
+Either<string, int> right = Either<string, int>.FromRight(42);
+Either<string, int> left = Either<string, int>.FromLeft("boom");
+
+// Inspect
+bool isRight = right.IsRight;   // true
+bool isLeft = left.IsLeft;      // true
+
+// Match: handle both branches
+string message = right.Match(
+    onLeft: error => $"Left: {error}",
+    onRight: value => $"Right: {value}");
+
+// Map: transform the Right value (Left passes through untouched)
+Either<string, string> mapped = right.Map(x => x.ToString());
+
+// MapLeft: transform the Left value (Right passes through untouched)
+Either<int, int> mappedLeft = left.MapLeft(e => e.Length);
+
+// Bind: chain operations that themselves return an Either
+Either<string, int> Halve(int n) =>
+    n % 2 == 0
+        ? Either<string, int>.FromRight(n / 2)
+        : Either<string, int>.FromLeft("odd number");
+
+Either<string, int> chained = right.Bind(Halve); // FromRight(21)
+```
+
+### LINQ query syntax
+
+`Select` and `SelectMany` compose the `Right` side with C# query expressions:
+
+```csharp
+Either<string, int> total =
+    from a in Either<string, int>.FromRight(10)
+    from b in Either<string, int>.FromRight(5)
+    select a + b;                                      // FromRight(15)
+
+// RightOr: provide a fallback when Left
+int safe = left.RightOr(0);                           // 0
+
+// Swap: flip Left and Right
+Either<int, string> swapped = right.Swap();           // FromLeft(42)
+```
+
+### Async combinators
+
+`BindAsync` and `MapAsync` work on both `Either<...>` and `Task<Either<...>>`, so you can build fluent asynchronous pipelines:
+
+```csharp
+async Task<Either<string, User>> LoadUserAsync(int id) { /* ... */ }
+
+Either<string, string> name = await Either<string, int>.FromRight(1)
+    .BindAsync(LoadUserAsync)      // chain an async step on the Right side
+    .MapAsync(user => user.Name);  // transform the Right value
 ```
 
 ## `Unit`
