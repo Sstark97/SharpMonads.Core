@@ -13,3 +13,5 @@ obj/
 
 # macOS
 .DS_Store
+
+.claude
