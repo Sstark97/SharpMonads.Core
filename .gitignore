@@ -1,0 +1,15 @@
+# Build output
+bin/
+obj/
+
+# NuGet
+*.nupkg
+*.snupkg
+
+# Rider / IDE
+.idea/
+.vs/
+*.user
+
+# macOS
+.DS_Store
