@@ -1,0 +1,11 @@
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/bin/Release/net10.0/SharpMonads.Core.deps.json
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/bin/Release/net10.0/SharpMonads.Core.dll
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/bin/Release/net10.0/SharpMonads.Core.pdb
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/obj/Release/net10.0/SharpMonads.Core.GeneratedMSBuildEditorConfig.editorconfig
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/obj/Release/net10.0/SharpMonads.Core.AssemblyInfoInputs.cache
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/obj/Release/net10.0/SharpMonads.Core.AssemblyInfo.cs
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/obj/Release/net10.0/SharpMonads.Core.csproj.CoreCompileInputs.cache
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/obj/Release/net10.0/SharpMonads.Core.dll
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/obj/Release/net10.0/refint/SharpMonads.Core.dll
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/obj/Release/net10.0/SharpMonads.Core.pdb
+/Users/aitorsantana/Documents/dev/projects/SharpMonads.Core/obj/Release/net10.0/ref/SharpMonads.Core.dll
