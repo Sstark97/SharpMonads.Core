@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
 
     <PackageId>SharpMonads.Core</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.1.0</Version>
     <Authors>ascinfo.dev</Authors>
     <Description>Librería de programación funcional que proporciona implementaciones sólidas y eficientes de mónadas esenciales para C#.</Description>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
