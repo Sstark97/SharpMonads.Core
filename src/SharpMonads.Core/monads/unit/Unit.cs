@@ -1,4 +1,4 @@
-namespace SharpMonads.Core;
+namespace SharpMonads.Core.monads.unit;
 
 public readonly record struct Unit
 {

@@ -1,4 +1,4 @@
-namespace SharpMonads.Core;
+namespace SharpMonads.Core.monads.either;
 
 public readonly record struct Either<TLeft, TRight>
 {

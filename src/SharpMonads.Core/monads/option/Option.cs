@@ -1,4 +1,4 @@
-namespace SharpMonads.Core;
+namespace SharpMonads.Core.monads.option;
 
 public readonly record struct Option<T>
 {

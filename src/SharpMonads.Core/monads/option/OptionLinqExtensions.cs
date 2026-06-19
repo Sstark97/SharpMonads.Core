@@ -1,4 +1,6 @@
-namespace SharpMonads.Core;
+using SharpMonads.Core.monads.result;
+
+namespace SharpMonads.Core.monads.option;
 
 public static class OptionLinqExtensions
 {

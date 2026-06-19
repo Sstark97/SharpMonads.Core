@@ -1,4 +1,7 @@
-namespace SharpMonads.Core.Tests;
+using SharpMonads.Core.monads.option;
+using SharpMonads.Core.monads.result;
+
+namespace SharpMonads.Core.Tests.monads.option;
 
 public class OptionShould
 {

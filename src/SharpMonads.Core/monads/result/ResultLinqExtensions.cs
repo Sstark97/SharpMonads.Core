@@ -1,4 +1,4 @@
-namespace SharpMonads.Core;
+namespace SharpMonads.Core.monads.result;
 
 public static class ResultLinqExtensions
 {

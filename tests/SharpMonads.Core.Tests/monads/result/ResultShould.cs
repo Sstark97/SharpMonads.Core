@@ -1,4 +1,7 @@
-namespace SharpMonads.Core.Tests;
+using SharpMonads.Core.monads.result;
+using SharpMonads.Core.monads.unit;
+
+namespace SharpMonads.Core.Tests.monads.result;
 
 public class ResultShould
 {
