@@ -1,4 +1,6 @@
-namespace SharpMonads.Core.Tests;
+using SharpMonads.Core.monads.either;
+
+namespace SharpMonads.Core.Tests.monads.either;
 
 public class EitherShould
 {

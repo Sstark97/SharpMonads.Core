@@ -1,4 +1,6 @@
-namespace SharpMonads.Core;
+using SharpMonads.Core.monads.unit;
+
+namespace SharpMonads.Core.monads.result;
 
 public static class ResultAsyncExtensions
 {
